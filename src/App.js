@@ -5,7 +5,6 @@ import React from "react";
 import {Global, css} from '@emotion/react'
 import * as Variable from './Constants/Variables';
 import Routes from "./Routes/AllRoutes";
-import {BackgroundColorMedium} from "./Constants/Variables";
 
 function App() {
 
@@ -14,12 +13,22 @@ function App() {
         font-family: "Heebo";
         src: local("Heebo"), url("Heebo-Bold.ttf") format('truetype');
       }
+      //@font-face {
+      //  font-family: "HeeboThin";
+      //  src: local("HeeboThin"), url("Heebo-Thin.ttf") format('truetype');
+      //  font-family: " Heebo-Medium";
+      //  src: local(" Heebo-Heebo-Medium"), url("Heebo-Medium.ttf") format('truetype');
+      //  font-family: " Heebo-Regular";
+      //  src: local(" Heebo-Regular"), url(" Heebo-Regular.ttf") format('truetype');
+      //  font-family: " Heebo-Black";
+      //  src: local(" Heebo-Black"), url(" Heebo-Black.ttf") format('truetype');
+      //}
 
       * {
         box-sizing: border-box;
         padding: 0;
         margin: 0;
-        font-family: 'Heebo',sans-serif;
+        font-family: 'Heebo', sans-serif;
         text-decoration: none;
         direction: ltr;
         scroll-behavior: smooth;
@@ -64,10 +73,13 @@ function App() {
         p {
           font-size: 1em;
         }
-        span{
+
+        span {
           font-size: .75em;
 
         }
+
+
       }
     `
     return (
