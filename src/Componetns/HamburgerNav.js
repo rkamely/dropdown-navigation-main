@@ -22,7 +22,7 @@ const navHamburgerCSS = css`
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  z-index: 2000;
+  z-index: 1000;
   height: 100%;
 
   > :nth-child(2) {

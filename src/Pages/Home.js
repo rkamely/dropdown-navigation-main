@@ -13,13 +13,16 @@ import Nav from "../Componetns/Nav";
 const homeCSS = css`
   position: relative;
   overflow: hidden;
-height: 100%;
+  height: 100%;
+
   > :nth-child(1) {
     display: flex;
+    position: sticky;
   }
 
   > :nth-child(2) {
     display: none;
+    position: sticky;
   }
 
   @media (max-width: 768px) {
