@@ -23,7 +23,7 @@ const navHamburgerCSS = css`
   align-items: center;
   padding: 1em;
   z-index: 2000;
-  height: 100vh;
+  height: auto;
 
   > :nth-child(2) {
     cursor: pointer;
