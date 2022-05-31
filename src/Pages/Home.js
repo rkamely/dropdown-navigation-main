@@ -17,12 +17,11 @@ const homeCSS = css`
 
   > :nth-child(1) {
     display: flex;
-    position: sticky;
   }
 
   > :nth-child(2) {
     display: none;
-    position: sticky;
+
   }
 
   @media (max-width: 768px) {

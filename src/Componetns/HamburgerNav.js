@@ -23,7 +23,6 @@ const navHamburgerCSS = css`
   align-items: center;
   padding: 1em;
   z-index: 1000;
-  height: 100%;
 
   > :nth-child(2) {
     cursor: pointer;
@@ -38,9 +37,10 @@ const hamburger = (hamburgerMenu) => css`
   position: absolute;
   width: 45%;
   background-color: #FFFFFF;
-  height: 100vh;
   padding: 1em;
   transition: .5s ease-in-out;
+  height: 100%;
+
   @media (max-width: 600px) {
     width: 65%;
   }
