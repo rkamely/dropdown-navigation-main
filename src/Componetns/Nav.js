@@ -20,9 +20,7 @@ const navCSS = css`
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  //@media (max-width: 992px) {
-  //  display: none;
-  //}
+ 
 `
 const leftSideNav = css`
   display: flex;
@@ -161,7 +159,7 @@ const rightSideNav = css`
 
 
 function Nav({featuresHandler, featureMenu, companyHandler, companyMenu, closeFloatMenusHandler}) {
-    const [transparent, setTransparent] = useState(false)
+
     return (
         <nav css={navCSS}>
             <div css={leftSideNav}>

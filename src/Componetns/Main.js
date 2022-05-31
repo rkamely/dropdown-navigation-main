@@ -16,7 +16,7 @@ import logo4 from "../Assets/images/client-meet.svg"
 const mainCSS = css`
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: space-between;
   width: 85%;
   margin: auto;
   @media (max-width: 992px) {
@@ -113,7 +113,8 @@ const logosCSS = css`
 const backgroundImg = (heroDesk, heroMob) => css`
   height: 500px;
   background-image: url(${heroDesk});
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
   @media (max-width: 992px) {
     background-image: url(${heroMob});
     background-repeat: no-repeat;
@@ -143,7 +144,6 @@ function Main() {
                         <img src={logo4} alt=""/>
                         <img src={logo3} alt=""/>
                     </div>
-
                 </div>
                 <div css={backgroundImg(heroDesk, heroMob)}/>
             </main>

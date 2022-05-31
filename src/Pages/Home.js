@@ -14,7 +14,6 @@ const homeCSS = css`
   position: relative;
   overflow: hidden;
   height: 100%;
-
   > :nth-child(1) {
     display: flex;
   }

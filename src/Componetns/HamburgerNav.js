@@ -174,6 +174,7 @@ function HamburgerNav({hamburgerMenuHandler, hamburgerMenu}) {
     const companyDrawerHandler = () => {
         setCompanyDrawer(!companyDrawer)
     }
+
     return (
         <nav css={navHamburgerCSS}>
             <img src={logo} alt="Snap company logo"/>
