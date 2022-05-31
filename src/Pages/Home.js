@@ -13,7 +13,9 @@ import Nav from "../Componetns/Nav";
 const homeCSS = css`
   position: relative;
   overflow: hidden;
-
+  @media (max-width: 768px) {
+   height: 100vh;
+    }
   > :nth-child(1) {
     display: flex;
   }
