@@ -35,11 +35,14 @@ const hamburger = (hamburgerMenu) => css`
   top: 0;
   z-index: 1000;
   position: absolute;
-  width: 65%;
+  width: 45%;
   background-color: #FFFFFF;
   height: 100vh;
   padding: 1em;
   transition: .5s ease-in-out;
+  @media (max-width: 600px) {
+    width: 65%;
+  }
 
   > img {
     width: 30px;
@@ -102,6 +105,7 @@ const drawer = css`
     justify-content: flex-start;
     align-items: center;
     margin: .7em 0;
+
     > img {
       margin-right: .4em;
       width: .75em;
@@ -109,6 +113,15 @@ const drawer = css`
 
 
   }
+`
+const transparentHamDiv = (hamburgerMenu) => css`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  display: ${hamburgerMenu ? "block" : "none"};
 `
 const hideFeatures = (featureDrawer) => css`
   display: ${featureDrawer ? "block" : "none"};
@@ -164,6 +177,7 @@ function HamburgerNav({hamburgerMenuHandler, hamburgerMenu}) {
         <nav css={navHamburgerCSS}>
             <img src={logo} alt="Snap company logo"/>
             <img onClick={hamburgerMenuHandler} src={hamburgerClose} alt=""/>
+            <div onClick={hamburgerMenuHandler} css={transparentHamDiv(hamburgerMenu)}/>
             <div css={hamburger(hamburgerMenu)}>
                 <img onClick={hamburgerMenuHandler} src={hamburgerOpen} alt=""/>
                 <div css={hamburgerMenuTitle}>

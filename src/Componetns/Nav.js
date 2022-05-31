@@ -15,7 +15,6 @@ import reminders from "../Assets/images/icon-reminders.svg"
 import planning from "../Assets/images/icon-planning.svg"
 
 
-
 const navCSS = css`
   display: flex;
   justify-content: space-between;
@@ -34,6 +33,7 @@ const leftSideNav = css`
 const menus = css`
   display: flex;
   align-items: center;
+
 
   > * {
     margin: auto .75em;
@@ -59,7 +59,15 @@ const menus = css`
     }
   }
 `
-
+const transparentDiv = (featureMenu, companyMenu) => css`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  display: ${featureMenu || companyMenu ? "block" : "none"};
+`
 const Features = css`
   display: flex;
   justify-content: space-between;
@@ -152,54 +160,54 @@ const rightSideNav = css`
 `
 
 
-
-function Nav({featuresHandler,featureMenu,companyHandler,companyMenu}) {
-
+function Nav({featuresHandler, featureMenu, companyHandler, companyMenu, closeFloatMenusHandler}) {
+    const [transparent, setTransparent] = useState(false)
     return (
-            <nav css={navCSS}>
-                <div css={leftSideNav}>
-                    <div css={menus}>
-                        <img src={logo} alt="Snap company logo"/>
-                        <div onClick={featuresHandler} css={Features}>
-                            <span>Features</span>
-                            <img src={featureMenu ? arrowUp : arrowDown} alt="Features Menus"/>
-                            <div css={hideFeatures(featureMenu)}>
-                                <div>
-                                    <img src={todo} alt=""/>
-                                    <Link to="#">Todo List</Link>
-                                </div>
-                                <div>
-                                    <img src={calender} alt=""/>
-                                    <Link to="#">Calendar</Link>
-                                </div>
-                                <div>
-                                    <img src={reminders} alt=""/>
-                                    <Link to="#">Reminders</Link>
-                                </div>
-                                <div>
-                                    <img src={planning} alt=""/>
-                                    <Link to="#">Planning</Link>
-                                </div>
+        <nav css={navCSS}>
+            <div css={leftSideNav}>
+                <div css={menus}>
+                    <img src={logo} alt="Snap company logo"/>
+                    <div onClick={closeFloatMenusHandler} css={transparentDiv(featureMenu, companyMenu)}/>
+                    <div onClick={featuresHandler} css={Features}>
+                        <span>Features</span>
+                        <img src={featureMenu ? arrowUp : arrowDown} alt="Features Menus"/>
+                        <div onClick={(e) => e.stopPropagation()} css={hideFeatures(featureMenu)}>
+                            <div>
+                                <img src={todo} alt=""/>
+                                <Link to="#">Todo List</Link>
+                            </div>
+                            <div>
+                                <img src={calender} alt=""/>
+                                <Link to="#">Calendar</Link>
+                            </div>
+                            <div>
+                                <img src={reminders} alt=""/>
+                                <Link to="#">Reminders</Link>
+                            </div>
+                            <div>
+                                <img src={planning} alt=""/>
+                                <Link to="#">Planning</Link>
                             </div>
                         </div>
-                        <div onClick={companyHandler} css={Company}>
-                            <span>Company</span>
-                            <img src={companyMenu ? arrowUp : arrowDown} alt="Company Menus"/>
-                            <div css={hideCompany(companyMenu)}>
-                                <Link to="#">History</Link>
-                                <Link to="#">Our Team</Link>
-                                <Link to="#">Blog</Link>
-                            </div>
-                        </div>
-                        <span>Careers</span>
-                        <span>About</span>
                     </div>
+                    <div onClick={companyHandler} css={Company}>
+                        <span>Company</span>
+                        <img src={companyMenu ? arrowUp : arrowDown} alt="Company Menus"/>
+                        <div onClick={(e) => e.stopPropagation()} css={hideCompany(companyMenu)}>
+                            <Link to="#">History</Link>
+                            <Link to="#">Our Team</Link>
+                            <Link to="#">Blog</Link>
+                        </div>
+                    </div>
+                    <span>Careers</span>
+                    <span>About</span>
                 </div>
-                <div css={rightSideNav}>
-                    <Link to='#'>Login</Link>
-                    <Link to='#'>Register</Link>
-                </div>
-            </nav>
+            </div>
+            <div css={rightSideNav}>
+                <Link to='#'>Login</Link>
+                <Link to='#'>Register</Link>
+            </div>
+        </nav>
     );
 }
 

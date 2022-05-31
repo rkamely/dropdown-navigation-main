@@ -36,9 +36,9 @@ const homeCSS = css`
 function Home() {
     const [featureMenu, setFeatureMenu] = useState(false)
     const featuresHandler = (e) => {
+        e.stopPropagation()
         setFeatureMenu(!featureMenu)
         setCompanyMenu(false)
-        e.stopPropagation()
 
     }
     const [companyMenu, setCompanyMenu] = useState(false)
@@ -57,14 +57,15 @@ function Home() {
     }
 
     const closeFloatMenusHandler = (e) => {
+        e.stopPropagation()
         setCompanyMenu(false)
         setFeatureMenu(false)
     }
 
     return (
-        <div css={homeCSS} onClick={closeFloatMenusHandler}>
+        <div css={homeCSS}>
             <Nav featuresHandler={featuresHandler} featureMenu={featureMenu} companyHandler={companyHandler}
-                 companyMenu={companyMenu}/>
+                 companyMenu={companyMenu} closeFloatMenusHandler={closeFloatMenusHandler}/>
             <HamburgerNav hamburgerMenuHandler={hamburgerMenuHandler} hamburgerMenu={hamburgerMenu}/>
             <Main/>
         </div>
